@@ -1,0 +1,66 @@
+:root {
+    --primary-color: #00bcd4;
+    --font-color: #333333;
+    --bg-color: rgba(0, 188, 212, 0.5);
+    --secondary-bg-color: rgba(255, 255, 255, 0.75);
+    --heading-color: #111111;
+    --font-heading: "Raleway", sans-serif;
+    --font-desc: "Oswald", sans-serif;
+}
+
+[data-theme="dark"] {
+    --primary-color: #07181d;
+    --font-color: #e1e1ff;
+    --bg-color: rgba(0, 0, 0, 0.68);
+    --secondary-bg-color: rgba(0, 0, 0, 0.85);
+    --heading-color: #ffffff;
+}
+
+
+body { margin: 0; font-family: "Raleway", sans-serif; font-weight: 500; }
+.container-fluid { width: 100%; height: auto; overflow: auto; }
+
+nav { height: 70px; overflow: auto; padding: 0.5rem 1rem; display: flex; align-items: center; position: fixed; left: 0; right: 0; top: 0; z-index: 999; background: rgba(0, 0, 0, 0.5);}
+nav .navbar-brand img {width:200px;}
+nav .theme-switch-wrapper {position:absolute; right:15px;}
+nav .theme-switch-wrapper .theme-switch {display: inline-block; height: 25px; position: relative; width: 52px;}
+nav .theme-switch-wrapper .theme-switch input {display:none;}
+nav .theme-switch-wrapper .slider {background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s;}
+nav .theme-switch-wrapper .slider:before {background-color: #fff; bottom: 4px; content: ""; height: 18px; left: 4px; position: absolute; transition: .4s; width: 18px;}
+nav .theme-switch-wrapper input:checked + .slider {background-color: #15373d;}
+nav .theme-switch-wrapper input:checked + .slider:before {transform: translateX(26px);}
+nav .theme-switch-wrapper .slider.round {border-radius: 34px;}
+nav .theme-switch-wrapper .slider.round:before {border-radius: 50%;}
+
+.img-wrapper { position: relative; height: auto; overflow: auto; display: flex; align-items: center; justify-content: center; }
+.img-wrapper .wrapper-img { width: 100%;}
+.img-wrapper .img-overlay { content: " "; width: 100%; height: auto; overflow: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 1; background-color: var(--bg-color); transition: 1s; }
+.img-wrapper form { background: var(--secondary-bg-color); position: absolute; border-radius: 0.5rem; padding: 2rem; z-index: 111; box-shadow: 0px 0px 9px 3px var(--primary-color); transition: 800ms;}
+.img-wrapper form .input-group { height: auto; overflow: auto; margin: 0.5rem; padding: 0.5rem; display: flex; align-items: center; flex-wrap:wrap;}
+.img-wrapper form .input-group label { display: inline-block; width: 7rem; color: var(--heading-color); font-family: "Oswald", sans-serif; letter-spacing: 1px; transition: 500ms;}
+.img-wrapper form .input-group input { display: inline-block; width: 15rem; height: 1rem; border-radius: 4px; padding: 0.5rem; border: 1px solid var(--primary-color); background: var(--secondary-bg-color); color: var(--heading-color); font-family: "Oswald", sans-serif; letter-spacing: 1px; transition: 500ms;}
+.img-wrapper form .input-group input:focus, .img-wrapper form .input-group input:hover { outline: none; border: 1px solid var(--primary-color); box-shadow: 0px 0px 8px 2px var(--primary-color); }
+.img-wrapper form .input-group ::-webkit-inner-spin-button { display: none; }
+.img-wrapper form .input-group ::-webkit-calendar-picker-indicator:hover { background: none; }
+.img-wrapper form .input-group ::-webkit-calendar-picker-indicator:hover { background: none; }
+.img-wrapper form button { padding: 0.3rem 1rem; border-radius: 4px; border: none; background-color: var(--primary-color); color: var(--heading-color); letter-spacing: 2px; margin: 1rem; font-size: 1rem; font-family: "Oswald", sans-serif; cursor: pointer; transition:500ms;}
+.img-wrapper form button:hover {box-shadow:inset 0px 0px 5px #000;}
+
+.modal {display: none; position: fixed; z-index: 998; padding-top: 100px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: var(--bg-color); transition: 1s;}
+.modal .modal-content {position: relative; background-color: var(--secondary-bg-color); margin: auto; padding: 0; border: 1px solid var(--primary-color); width: 50%; color: var(--font-color); box-shadow: 0 0 9px 3px var(--primary-color);}
+.modal .modal-content img {width:100%; height:auto;}
+.modal .modal-content .modal-img-overlay {position: absolute; top:0; left:0; right:0; padding:2rem;}
+.modal .modal-content .modal-img-overlay h3 {color:#15373d; font-family: var(--font-desc); text-transform: uppercase; font-size:2rem;}
+.modal .modal-content .modal-body {height:auto; overflow:auto; display: flex; flex-wrap: wrap; justify-content: space-around; padding:1rem;}
+.modal .modal-content .modal-body .suggestion-box {width:45%; padding:0.4rem; background: var(--secondary-bg-color); border:1px solid var(--primary-color); height: auto; margin-bottom:1rem; overflow:auto; text-align: center; transition: 500ms;}
+.modal .modal-content .modal-body .suggestion-box:hover {box-shadow: 0 0 6px 1px var(--primary-color);}
+.modal .modal-content .modal-body .suggestion-box h4 {font-family: var(--font-desc); margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 2px; font-size:1.2rem;}
+.modal .modal-content .modal-body .suggestion-box p {line-height: 1.5rem; text-transform: uppercase; font-style: normal; letter-spacing: 2px; color: var(--font-color);}
+.modal .modal-content .close {color: var(--font-color); font-size: 28px; font-weight: bold; position:absolute; top:1rem; right:1rem;}
+.modal .modal-content .close:hover, .close:focus {color: var(--font-color); text-decoration: none; cursor: pointer;}
+
+@media only screen and (max-width: 768px) {
+    .img-wrapper form {padding:0;}
+    .modal .modal-content {width:100%;}
+    .modal .modal-content .modal-body .suggestion-box {width:100%;}
+  }
